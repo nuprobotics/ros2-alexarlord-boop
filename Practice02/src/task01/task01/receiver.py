@@ -14,7 +14,7 @@ class Receiver(Node):
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
-        self.get_logger().info('Received message: "%s"' % msg.data)
+        self.get_logger().info(msg.data)
 
 
 def main(args=None):
