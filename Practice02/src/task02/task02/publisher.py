@@ -15,8 +15,8 @@ class Publisher(Node):
         self.publisher_ = self.create_publisher(String, self.topic_name, 10)
         self.timer = self.create_timer(2.0, self.timer_callback)
 
-        msg = String()
-        msg.data = self.text
+        self.msg = String()
+        self.msg.data = self.text
 
     def timer_callback(self):
         self.publisher_.publish(self.msg)
