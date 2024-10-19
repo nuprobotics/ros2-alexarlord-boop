@@ -1,24 +1,11 @@
-from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
-
-
-def generate_launch_description():
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'text',
-            default_value='Hello, ROS2!',
-            description='Text to be published'
-        ),
-        Node(
-            package='task02',
-            executable='publisher',
-            name='publisher',
-            output='screen',
-            parameters=[
-                {'text': LaunchConfiguration('text')},
-                'config/task02.yaml'
-            ],
-        ),
-    ])
+<launch>
+<arg name="text" default="Hello, ROS2!"/>
+<node
+pkg = "task02"
+exec = "publisher"
+output = "screen"
+>
+<param name = "text" value="$(var text)"/>
+<param from = "$(find-pkg-share task02)/config/task02.yaml"/>
+</node>
+</launch>
