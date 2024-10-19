@@ -1,12 +1,11 @@
-from launch import LaunchDescription
-from launch_ros.actions import Node
-
-def generate_launch_description():
-    return LaunchDescription([
-        Node(
-            package='task01',
-            executable='receiver',
-            name='receiver',
-            output='screen',
-        ),
-    ])
+<launch>
+<arg name="text" default="Hello, ROS2!"/>
+<node
+pkg = "task02"
+exec = "publisher"
+output = "screen"
+>
+<param name = "text" value="$(var text)"/>
+<param from = "$(find-pkg-share task02)/config/task02.yaml"/>
+</node>
+</launch>
