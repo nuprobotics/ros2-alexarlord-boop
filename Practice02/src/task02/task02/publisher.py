@@ -6,10 +6,9 @@ from rclpy.node import Node
 class Publisher(Node):
     def __init__(self):
         super(Publisher, self).__init__("publisher")
-        self.declare_parameter("topic_name", "")
         self.declare_parameter("text", "")
-        timer_period = 0.5
-        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.declare_parameter("topic_name", "")
+
         self.topic_name = self.get_parameter("topic_name").get_parameter_value().string_value
         self.publisher = self.create_publisher(String, self.topic_name, 10)
 
