@@ -1,11 +1,10 @@
 <launch>
-<arg name="text" default="Hello, ROS2!"/>
+<arg name="string" default="hi"/>
 <node
-pkg = "task02"
-exec = "publisher"
+pkg = "task01"
+exec = "reciever"
 output = "screen"
 >
-<param name = "text" value="$(var text)"/>
-<param from = "$(find-pkg-share task02)/config/task02.yaml"/>
+<param name = "string" value="$(var string)"/>
 </node>
 </launch>
