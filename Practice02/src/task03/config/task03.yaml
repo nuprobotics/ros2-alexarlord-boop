@@ -1,0 +1,4 @@
+/**:
+  ros__parameters:
+    service_name: "/spgc/trigger"
+    default_string: "No service available"

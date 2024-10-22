@@ -1,0 +1,11 @@
+<launch>
+<arg name="text" default="Hello, ROS2!"/>
+<node
+pkg = "task03"
+exec = "service_node"
+output = "screen"
+>
+
+<param from = "$(find-pkg-share task03)/config/task03.yaml"/>
+</node>
+</launch>
