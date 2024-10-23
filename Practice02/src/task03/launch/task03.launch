@@ -2,7 +2,7 @@
 <arg name="text" default="Hello, ROS2!"/>
 <node
 pkg = "task03"
-exec = "service_node"
+exec = "service"
 output = "screen"
 >
 
